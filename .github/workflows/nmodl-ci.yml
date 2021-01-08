@@ -40,7 +40,7 @@ jobs:
       - name: Install homebrew packages
         if: startsWith(matrix.os, 'macOS')
         run: |
-          brew install coreutils bison flex boost openmpi python@3
+          brew install coreutils bison flex boost openmpi
         shell: bash
 
       - name: Install apt packages
@@ -57,7 +57,7 @@ jobs:
           PYTHON_VERSION:  ${{ env.DEFAULT_PY_VERSION }}
        
       - name: Install Python3 documentation dependencies
-        if: ${{ startsWith(matrix.os, 'ubuntu') && matrix.config.documentation == 'ON' }}
+        if: ${{ startsWith(matrix.os, 'ubuntu') }}
         working-directory: ${{runner.workspace}}/CoreNeuron
         run: |
           pip3 install -U pip setuptools scikit-build Jinja2 PyYAML pytest sympy
