@@ -27,7 +27,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ ubuntu-18.04, macOS-10.15 ]
+        os: [ ubuntu-16.04, macOS-10.15 ]
       fail-fast: true
 
     steps:
@@ -79,7 +79,7 @@ jobs:
           echo "------- Build, Test and Install -------"
           mkdir build && pushd build
           cmake .. -DPYTHON_EXECUTABLE=$(which python3) -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR
-          cmake --build . -- -j;
+          make;
           if [ $? -ne 0 ]; then
             make VERBOSE=1;
           fi
