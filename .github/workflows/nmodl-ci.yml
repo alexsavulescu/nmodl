@@ -19,7 +19,7 @@ jobs:
   ci:
     runs-on: ${{ matrix.os }}
 
-    name: ${{ matrix.os }} - ${{ toJson(matrix.config) }})
+    name: ${{ matrix.os }}
 
     env:
       INSTALL_DIR: install
@@ -70,6 +70,7 @@ jobs:
         working-directory: ${{runner.workspace}}/nmodl
         run:  |
           if [[ "${{ startsWith(matrix.os, 'macOS') }}" = "true" ]]; then
+              export PATH=/usr/local/opt/flex/bin:/usr/local/opt/bison/bin:$PATH;
               export CXX=g++;
               export CC=gcc;
           fi
