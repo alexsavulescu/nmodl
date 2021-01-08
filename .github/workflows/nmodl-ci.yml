@@ -56,8 +56,7 @@ jobs:
         env:
           PYTHON_VERSION:  ${{ env.DEFAULT_PY_VERSION }}
        
-      - name: Install Python3 documentation dependencies
-        if: ${{ startsWith(matrix.os, 'ubuntu') }}
+      - name: Install Python3 dependencies
         run: |
           pip3 install -U pip setuptools scikit-build Jinja2 PyYAML pytest sympy
           
