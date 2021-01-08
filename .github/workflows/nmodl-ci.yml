@@ -97,7 +97,7 @@ jobs:
         uses: mxschmitt/action-tmate@v3
 
       - name: Documentation 
-        if: ${{ startsWith(matrix.os, 'ubuntu') && matrix.config.documentation == 'ON' }}
+        if: ${{ startsWith(matrix.os, 'ubuntu') }}
         id: documentation
         working-directory: ${{runner.workspace}}/nmodl
         run: |
