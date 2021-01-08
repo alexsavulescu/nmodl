@@ -58,7 +58,6 @@ jobs:
        
       - name: Install Python3 documentation dependencies
         if: ${{ startsWith(matrix.os, 'ubuntu') }}
-        working-directory: ${{runner.workspace}}/CoreNeuron
         run: |
           pip3 install -U pip setuptools scikit-build Jinja2 PyYAML pytest sympy
           
